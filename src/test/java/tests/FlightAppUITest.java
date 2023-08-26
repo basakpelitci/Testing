@@ -21,7 +21,7 @@ public class FlightAppUITest {
 
     @Test
     public void testSameFromToInput() {
-        String inputText = "Paris"; // Test için kullanılacak şehir adı
+        String inputText = "Paris";  // Set city options
 
         WebElement fromInput = driver.findElement(By.id("headlessui-combobox-input-:Rq9lla:"));
         fromInput.sendKeys(inputText);
@@ -38,27 +38,23 @@ public class FlightAppUITest {
 
     @Test
     public void testFlightListCount() {
-        // Set city options
-        String fromCity = "Istanbul";
+
+        String fromCity = "Istanbul";  // Set city options
         String toCity = "Los Angeles";
 
-        // "From" ve "To" input alanlarına seçenekleri gir
+
         WebElement fromInput = driver.findElement(By.xpath("//input[@id='headlessui-combobox-input-:Rq9lla:']"));
         fromInput.sendKeys(fromCity);
 
         WebElement toInput = driver.findElement(By.xpath("//input[@id='headlessui-combobox-input-:Rqhlla:']"));
         toInput.sendKeys(toCity);
 
-
         int expectedFlightCount = 2; // Test fails at other(false) numbers
-
 
         List<WebElement> flightListItems = driver.findElements(By.tagName("li"));
 
-        // Uçuş sayısını al
         int actualFlightCount = flightListItems.size();
 
-        // Karşılaştırma yap
         Assert.assertEquals("Flight count does not match the expected count.", expectedFlightCount, actualFlightCount);
 
     }
