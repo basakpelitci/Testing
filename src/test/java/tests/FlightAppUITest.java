@@ -43,10 +43,10 @@ public class FlightAppUITest {
         String toCity = "Los Angeles";
 
 
-        WebElement fromInput = driver.findElement(By.xpath("//input[@id='headlessui-combobox-input-:Rq9lla:']"));
+        WebElement fromInput = driver.findElement(By.id("headlessui-combobox-input-:Rq9lla:"));
         fromInput.sendKeys(fromCity);
 
-        WebElement toInput = driver.findElement(By.xpath("//input[@id='headlessui-combobox-input-:Rqhlla:']"));
+        WebElement toInput = driver.findElement(By.id("headlessui-combobox-input-:Rqhlla:"));
         toInput.sendKeys(toCity);
 
         int expectedFlightCount = 2; // Test fails at other(false) numbers
